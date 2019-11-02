@@ -2,7 +2,7 @@
     $title = 'Success'; 
     require_once 'includes/header.php'; 
     require_once 'db/conn.php';
-    //require_once 'sendemail.php';
+    require_once 'sendmail.php';
 
     if(isset($_POST['submit'])){
         //extract values from the $_POST array
@@ -19,7 +19,7 @@
         $specialtyName = $crud->getSpecialtyById($specialty);
 
         if($isSuccess){
-            //SendEmail::Sendmail($email, "Welcome to CANNEX 2019", "You have been sucessfully registered for this year\'s conference");
+            SendEmail::Sendmail($email, "Welcome to CANNEX 2019", "You have been sucessfully registered for this year\'s conference");
             include 'includes/successmessage.php';
         }
         else{
